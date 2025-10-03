@@ -1,0 +1,34 @@
+.ONESHELL:
+SHELL = /bin/bash
+.PHONY: help setup clean
+
+GIT_ACCOUNT = julinke
+REPO_NAME = drysat_teach
+GIT_BRANCH = dev
+GIT_REPO = https://github.com/$(GIT_ACCOUNT)/$(REPO_NAME).git
+ROOT = $(HOME)/$(REPO_NAME)
+
+help:
+	@echo "Top-level Makefile to clone and set up the Jupyter environment"
+	@echo ""
+	@echo "Usage:"
+	@echo "  make setup  - Clone repo and install environment + kernel"
+	@echo "  make clean  - Remove repo, environment, and kernel"
+
+setup:
+	if [ ! -d "$(ROOT)" ]; then \
+		git clone --branch $(GIT_BRANCH) $(GIT_REPO) $(ROOT); \
+	else \
+		echo "$(ROOT) already exists, skipping clone."; \
+	fi
+	cd $(ROOT) && make kernel
+	@echo "Setup complete."
+
+clean:
+	if [ -d "$(ROOT)" ]; then \
+		cd $(ROOT) && make teardown; \
+		rm -rf $(ROOT); \
+	else \
+		echo "$(ROOT) not found. Nothing to clean."; \
+	fi
+	@echo "Cleanup complete."
