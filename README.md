@@ -36,7 +36,7 @@ To create the environment:
 ```bash
 conda env create -f env.yml
 conda activate remote_sensing
-
+```
 
 ## Acknowledgements
 Developed as part of research activities within the Remote Sensing Research Group, TU Wien.
