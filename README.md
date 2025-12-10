@@ -1,6 +1,6 @@
 # Remote Sensing Notebooks
-**Author:** Julian Linke 
-**Affiliation:** Remote Sensing Research Group, TU Wien 
+**Author:** Julian Linke<br>
+**Affiliation:** Remote Sensing Research Group, TU Wien<br>
 **Period:** July 2024 – August 2024
 
 # Remote Sensing Notebooks
